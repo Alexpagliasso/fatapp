@@ -1,4 +1,4 @@
-$danger: lightcoral;
+@import '../../../colori';
 .containerTeam {
     display: flex;
     width: 8%;
@@ -10,6 +10,6 @@ $danger: lightcoral;
 }
 
 .containerTeam:hover {
-    background-color: $danger;
+    background-color: $sfondoSquadre;
     cursor: pointer;
 }
