@@ -1,0 +1,15 @@
+$danger: lightcoral;
+.containerTeam {
+    display: flex;
+    width: 8%;
+    flex-direction: column;
+    border: solid #666 1px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.containerTeam:hover {
+    background-color: $danger;
+    cursor: pointer;
+}
