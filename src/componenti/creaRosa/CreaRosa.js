@@ -1,10 +1,10 @@
 import './CreaRosa.scss';
-import axios from 'axios';
+//import axios from 'axios';
 import data from '../../Json/mockup.json'
 import Team from './Team/Team';
 function CreaRosa() {
 
-  const Data = data.slice(0,10)
+  const Data = data.slice(0, 10)
   /*
   const fetch = async () => {
     axios.get("https://apiv2.allsportsapi.com/football/?&met=Teams&teamId=96&APIkey=ca28127c1d6927fd9db77f390e5cdb54aef7bad562f8ae0b593ee2552c669359")
@@ -87,15 +87,16 @@ function CreaRosa() {
     <div className="CreaRosa">
       <div className='containerTeams'>
         {Data.map((team) => {
-          return(
-            <Team 
-            team={team}
+          return (
+            <Team
+              key={team.team_key}
+              team={team}
             />
           )
         })}
       </div>
       <div className='containerPlayers'>
-        
+
       </div>
     </div>
 
