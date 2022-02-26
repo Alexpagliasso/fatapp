@@ -5,22 +5,29 @@ import Team from './Team/Team';
 import Players from '../Players/Players';
 import { useState } from 'react';
 
+
+
 function CreaRosa() {
 
-  const [name, setName] = useState('');
-  const Data = data.slice(0, 10)
+
+  const Data = data.slice(0, 10);
+  const [player, setPlayer] = useState('');
 
 
 
 
   const selectTeam = (event) => {
-    console.log(Data.players)
+
 
     for (let i = 0; i < Data.length; i++) {
       if (event.target.src === Data[i].team_logo) {
 
-        setName(Data[i].team_name);
+        let players = Data[i].players.map(item => item);
 
+        for (let player of players) {
+          console.log(player.player_name);
+          setPlayer(player.player_name);
+        }
       }
     }
   }
@@ -119,7 +126,7 @@ function CreaRosa() {
         })}
       </div>
       <div className='containerPlayers'>
-        <Players name={name} />
+        <Players name={player} />
       </div>
     </div>
 
