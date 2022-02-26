@@ -2,9 +2,31 @@ import './CreaRosa.scss';
 //import axios from 'axios';
 import data from '../../Json/mockup.json'
 import Team from './Team/Team';
+import Players from '../Players/Players';
+import { useState } from 'react';
+
 function CreaRosa() {
 
+  const [name, setName] = useState('');
   const Data = data.slice(0, 10)
+
+
+
+
+  const selectTeam = (event) => {
+    console.log(Data.players)
+
+    for (let i = 0; i < Data.length; i++) {
+      if (event.target.src === Data[i].team_logo) {
+
+        setName(Data[i].team_name);
+
+      }
+    }
+  }
+
+
+
   /*
   const fetch = async () => {
     axios.get("https://apiv2.allsportsapi.com/football/?&met=Teams&teamId=96&APIkey=ca28127c1d6927fd9db77f390e5cdb54aef7bad562f8ae0b593ee2552c669359")
@@ -91,12 +113,13 @@ function CreaRosa() {
             <Team
               key={team.team_key}
               team={team}
+              selectTeam={selectTeam}
             />
           )
         })}
       </div>
       <div className='containerPlayers'>
-
+        <Players name={name} />
       </div>
     </div>
 
