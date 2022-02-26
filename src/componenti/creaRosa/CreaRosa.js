@@ -11,7 +11,7 @@ function CreaRosa() {
 
 
   const Data = data.slice(0, 10);
-  const [listOrGridView, setListOrGrid] = useState(false);
+  //const [listOrGridView, setListOrGrid] = useState(false);
   const [player, setPlayer] = useState('');
 
 
@@ -24,12 +24,13 @@ function CreaRosa() {
       if (event.target.id === Data[i].team_key) {
 
         let players = Data[i].players.map(item => item);
+        setPlayer(players.map(item => item.player_name));
 
-        for (let player of players) {
-          console.log(player.player_name);
-          setListOrGrid(true);
-          setPlayer(player.player_name);
-        }
+        /*         for (let player of players) {
+                  console.log(player.player_name);
+                  setListOrGrid(true);
+                  setPlayer(player.player_name);
+                } */
       }
     }
   }
@@ -128,9 +129,9 @@ function CreaRosa() {
         })}
       </div>
       <div className='containerPlayers'>
-        {
-          listOrGridView === true ? <Players name={player} /> : null
-        }
+
+        <Players name={player} />
+
       </div>
     </div>
 
