@@ -4,7 +4,11 @@ import './Players.scss';
 const Players = ({ name }) => {
 
     return (
-        <div><p>{name}</p></div>
+        <div>
+            <ul>
+                <li>{name}</li>
+            </ul>
+        </div>
     )
 }
 
