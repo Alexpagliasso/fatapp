@@ -31,7 +31,7 @@ function CreaRosa() {
       </div>
       <div className="containerTeams">
         {players.map((player) => {
-          return <Players name={player.player_name} image={player.player_image}  />;
+          return <Players key={player.player_key} name={player.player_name} image={player.player_image}  />;
         })}
       </div>
     </div>
