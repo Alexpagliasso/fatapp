@@ -15,7 +15,7 @@ function CreaRosa() {
         let players = Data[i].players.map((item) => item);
 
           setPlayers(players);
-          
+
       }
     }
   };
@@ -29,9 +29,9 @@ function CreaRosa() {
           );
         })}
       </div>
-      <div className="containerPlayers">
+      <div className="containerTeams">
         {players.map((player) => {
-          return <Players name={player.player_name} />;
+          return <Players name={player.player_name} image={player.player_image}  />;
         })}
       </div>
     </div>
