@@ -7,7 +7,7 @@ const Team = ({ team, selectTeam }) => {
     return (
 
         <div className='containerTeam' onClick={selectTeam}>
-            <img id={squadre.team_key} alt="logo" src={squadre.team_logo}></img>
+            <img className='logoSquadre' id={squadre.team_key} alt="logo" src={squadre.team_logo}></img>
             <p>{squadre.team_name}</p>
         </div>
     )

@@ -1,15 +1,21 @@
 @import "../../../colori";
 .containerTeam {
-  display: flex;
-  width: auto;
-  flex-direction: column;
-  border: solid #666 1px;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    border: solid #666 1px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
 }
 
 .containerTeam:hover {
-  background-color: $sfondoSquadre;
-  cursor: pointer;
+    background-color: $sfondoSquadre;
+    cursor: pointer;
+}
+
+.logoSquadre {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
 }
