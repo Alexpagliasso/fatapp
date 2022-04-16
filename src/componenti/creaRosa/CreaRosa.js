@@ -38,7 +38,7 @@ function CreaRosa() {
           checkIfImageExists(p.player_image, (exists) => {
             if (!exists) {
 
-              let newUrl = "./img/Juventus/Pinsoglio.jpg";
+              let newUrl = "img/Juventus/Pinsoglio.jpg";
 
               p.player_image = newUrl;
 
