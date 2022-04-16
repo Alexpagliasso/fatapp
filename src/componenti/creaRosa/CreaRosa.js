@@ -21,15 +21,58 @@ function CreaRosa() {
       if (event.target.id === Data[i].team_key) {
         let players = Data[i].players.map((item) => item);
         setPlayers(players);
+
         players.forEach((p) => {
-          if(p.player_type === "Goalkeepers") {
-            port.push(p)
+          if (p.player_type === "Goalkeepers") {
+
+            port.push(p);
+
           }
-        })
-        setPortieri(port)
+
+        });
+
+
+        port.forEach((p) => {
+
+          //images not found
+          checkIfImageExists(p.player_image, (exists) => {
+            if (!exists) {
+
+              let newUrl = "./img/Juventus/Pinsoglio.jpg";
+
+              p.player_image = newUrl;
+
+              console.log(`Portieri ${p.player_image}`);
+
+            }
+          });
+
+        });
+
+        setPortieri(port);
       }
     }
   };
+
+
+  const checkIfImageExists = (url, callback) => {
+    const img = new Image();
+
+    img.src = url;
+
+    if (img.complete) {
+      callback(true);
+    } else {
+      img.onload = () => {
+        callback(true);
+      };
+
+      img.onerror = () => {
+        callback(false);
+      };
+    }
+  };
+
 
   return (
     <div className="CreaRosa">
@@ -48,7 +91,7 @@ function CreaRosa() {
           onSwiper={(swiper) => console.log(swiper)}>
           {players.map((player) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={player.player_key}>
                 {player.player_type === "Goalkeepers" ?
                   <Players key={player.player_key} name={player.player_name} image={player.player_image} />
                   : ""
