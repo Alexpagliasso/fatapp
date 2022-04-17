@@ -12,7 +12,7 @@ import 'swiper/css';
 
 function CreaRosa() {
   const Data = data.slice(0, 10);
-  const [players, setPlayers] = useState([]);
+  // const [players, setPlayers] = useState([]);
   const [portieri, setPortieri] = useState([]);
 
   const selectTeam = (event) => {
@@ -20,36 +20,39 @@ function CreaRosa() {
     for (let i = 0; i < Data.length; i++) {
       if (event.target.id === Data[i].team_key) {
         let players = Data[i].players.map((item) => item);
-        setPlayers(players);
+        // setPlayers(players);
 
         players.forEach((p) => {
           if (p.player_type === "Goalkeepers") {
 
             port.push(p);
 
+            port.forEach((p) => {
+
+              //images not found
+              checkIfImageExists(p.player_image, (exists) => {
+                if (!exists) {
+
+                  let newUrl = image;
+
+                  p.player_image = newUrl;
+
+                  console.log(`Portieri ${p.player_image}`);
+
+                }
+              });
+
+            });
+
           }
 
-        });
-
-
-        port.forEach((p) => {
-
-          //images not found
-          checkIfImageExists(p.player_image, (exists) => {
-            if (!exists) {
-
-              let newUrl = image;
-
-              p.player_image = newUrl;
-
-              console.log(`Portieri ${p.player_image}`);
-
-            }
-          });
+          setTimeout(() => {
+            setPortieri(port);
+          }, 200);
 
         });
 
-        setPortieri(port);
+
       }
     }
   };
@@ -89,13 +92,10 @@ function CreaRosa() {
           slidesPerView={3}
           onSlideChange={() => console.log(portieri)}
           onSwiper={(swiper) => console.log(swiper)}>
-          {players.map((player) => {
+          {portieri.map((player) => {
             return (
               <SwiperSlide key={player.player_key}>
-                {player.player_type === "Goalkeepers" ?
-                  <Players key={player.player_key} name={player.player_name} image={player.player_image} />
-                  : ""
-                }
+                <Players key={player.player_key} name={player.player_name} image={player.player_image} />
               </SwiperSlide>
             )
           })}
