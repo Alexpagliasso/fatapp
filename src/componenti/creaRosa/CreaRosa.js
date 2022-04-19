@@ -1,13 +1,19 @@
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import "./CreaRosa.scss";
-//import axios from 'axios';
+
+// import required modules
+import { Pagination, Navigation } from "swiper";
 import data from "../../Json/mockup.json";
 import Team from "./Team/Team";
 import Players from "../Players/Players";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
+//import axios from 'axios';
 
 function CreaRosa() {
   const Data = data.slice(0, 10);
@@ -88,10 +94,16 @@ function CreaRosa() {
       </div>
       <div className="containerTeams">
         <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
-          onSlideChange={() => console.log(portieri)}
-          onSwiper={(swiper) => console.log(swiper)}>
+        onSlideChange={() => console.log(portieri)}
+        onSwiper={(swiper) => console.log(swiper)}
+        slidesPerView={3}
+        spaceBetween={10}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        >
           {portieri.map((player) => {
             return (
               <SwiperSlide key={player.player_key}>
