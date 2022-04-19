@@ -22,8 +22,8 @@ function CreaRosa() {
 
 
   // Seleziona squadra
-  const selectTeam = (event) => {
-    let port = []
+  const selectTeam = event => {
+    let port = [];
     for (let i = 0; i < Data.length; i++) {
       if (event.target.id === Data[i].team_key) {
         let players = Data[i].players.map((item) => item);
