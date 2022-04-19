@@ -909,19 +909,6 @@
                 "player_image": "https://apiv2.allsportsapi.com/logo/players/140840_afurlanetto.jpg"
             },
             {
-                "player_key": 3177169050,
-                "player_name": "G. Moretti",
-                "player_number": "42",
-                "player_country": null,
-                "player_type": "Goalkeepers",
-                "player_age": "19",
-                "player_match_played": "0",
-                "player_goals": "0",
-                "player_yellow_cards": "0",
-                "player_red_cards": "0",
-                "player_image": "https://apiv2.allsportsapi.com/logo/players/148900_g-moretti.jpg"
-            },
-            {
                 "player_key": 2540255688,
                 "player_name": "Luiz Felipe",
                 "player_number": "3",

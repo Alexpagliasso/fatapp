@@ -5,7 +5,6 @@ import Team from "./Team/Team";
 import Players from "../Players/Players";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import image from "../../img/Juventus/Pinsoglio.jpg";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -33,9 +32,10 @@ function CreaRosa() {
               checkIfImageExists(p.player_image, (exists) => {
                 if (!exists) {
 
-                  let newUrl = image;
+                  
+                  console.log(`Portieri non trovati ${p.player_name}`);
 
-                  p.player_image = newUrl;
+                  p.player_image = `./img/Giocatori/${p.player_name}.jpg`;
 
                   console.log(`Portieri ${p.player_image}`);
 
