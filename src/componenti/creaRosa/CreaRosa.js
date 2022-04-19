@@ -20,6 +20,8 @@ function CreaRosa() {
   // const [players, setPlayers] = useState([]);
   const [portieri, setPortieri] = useState([]);
 
+
+  // Seleziona squadra
   const selectTeam = (event) => {
     let port = []
     for (let i = 0; i < Data.length; i++) {
@@ -38,7 +40,7 @@ function CreaRosa() {
               checkIfImageExists(p.player_image, (exists) => {
                 if (!exists) {
 
-                  
+
                   console.log(`Portieri non trovati ${p.player_name}`);
 
                   p.player_image = `./img/Giocatori/${p.player_name}.jpg`;
@@ -64,6 +66,7 @@ function CreaRosa() {
   };
 
 
+  // Controllo se mi ritorna l'immagine dall'api
   const checkIfImageExists = (url, callback) => {
     const img = new Image();
 
@@ -83,34 +86,41 @@ function CreaRosa() {
   };
 
 
+  // Squadre
+  const team = Data.map((team) => {
+    return (
+      <Team key={team.team_key} team={team} selectTeam={selectTeam} />
+    );
+  });
+
+  // Portieri
+  const goalkeepers = portieri.map((player) => {
+    return (
+      <SwiperSlide key={player.player_key}>
+        <Players key={player.player_key} name={player.player_name} image={player.player_image} />
+      </SwiperSlide>
+    )
+  });
+
+
   return (
     <div className="CreaRosa">
       <div className="containerTeams">
-        {Data.map((team) => {
-          return (
-            <Team key={team.team_key} team={team} selectTeam={selectTeam} />
-          );
-        })}
+        {team}
       </div>
       <div className="containerTeams">
         <Swiper
-        onSlideChange={() => console.log(portieri)}
-        onSwiper={(swiper) => console.log(swiper)}
-        slidesPerView={3}
-        spaceBetween={10}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
+          onSlideChange={() => console.log(portieri)}
+          onSwiper={(swiper) => console.log(swiper)}
+          slidesPerView={3}
+          spaceBetween={10}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
         >
-          {portieri.map((player) => {
-            return (
-              <SwiperSlide key={player.player_key}>
-                <Players key={player.player_key} name={player.player_name} image={player.player_image} />
-              </SwiperSlide>
-            )
-          })}
+          {goalkeepers}
         </Swiper>
       </div>
     </div>
